@@ -26,7 +26,7 @@ export function initiate(chdir:(newDirection:Direction) => void):Promise<Game>{
                     chdir('w')
                 }
             }
-            e.preventDefault();
+//             e.preventDefault();
         })
         return {
             general:{
