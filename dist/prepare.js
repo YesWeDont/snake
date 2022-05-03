@@ -25,7 +25,7 @@ export function initiate(chdir) {
                     chdir('w');
                 }
             }
-            e.preventDefault();
+//             e.preventDefault();
         });
         return {
             general: {
