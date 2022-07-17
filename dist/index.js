@@ -12,7 +12,7 @@ import { initiate } from "./prepare.js";
 (() => __awaiter(void 0, void 0, void 0, function* () {
     let GAME = yield initiate((direction) => {
         let latestDirection = GAME.state.headingQueue[GAME.state.headingQueue.length - 1] || GAME.state.heading;
-        if (validDirectionChange(direction, latestDirection))
+        if (validDirectionChange(direction, latestDirection) &&  GAME.state.headingQueue.length < 3)
             GAME.state.headingQueue.push(direction);
     });
     requestAnimationFrame(update);
