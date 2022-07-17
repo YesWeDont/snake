@@ -4,7 +4,7 @@ import { initiate } from "./prepare.js";
     let GAME = await initiate((direction)=>{
         //circumvent self-hitting + shorten queue
         let latestDirection = GAME.state.headingQueue[GAME.state.headingQueue.length - 1] || GAME.state.heading;
-        if(validDirectionChange(direction, latestDirection) && game.headingQueue.length < 3) GAME.state.headingQueue.push(direction)
+        if(validDirectionChange(direction, latestDirection)) GAME.state.headingQueue.push(direction)
     });
     //raf shoot my foot
     requestAnimationFrame(update)
