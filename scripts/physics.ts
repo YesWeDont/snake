@@ -3,7 +3,7 @@ export function physics(_game:Game, gameEnd: (message:string)=>void){
     //deeeeep copy of 
     let game:typeof _game.state = JSON.parse(JSON.stringify(_game.state));
     //first increment the position
-    game.progress += 0.05
+    game.progress += 0.1;
     //then do the pos calculations
     if(game.progress > 1){
         game.heading = game.headingQueue.shift() || game.heading

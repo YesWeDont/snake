@@ -28,4 +28,3 @@ export function vectDirection(v) {
     else
         throw new Error('Invalid `v` component');
 }
-//# sourceMappingURL=coordinates.js.map

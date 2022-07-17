@@ -17,15 +17,6 @@ export function initiate(chdir) {
                 chdir("s");
             if (e.key.toLowerCase() === 'd' || e.key === 'ArrowRight')
                 chdir("e");
-            if (e.key.toLowerCase() === 'g') {
-                for (let i = 0; i < 100; i++) {
-                    chdir('n');
-                    chdir('e');
-                    chdir('s');
-                    chdir('w');
-                }
-            }
-//             e.preventDefault();
         });
         return {
             general: {
@@ -43,4 +34,3 @@ export function initiate(chdir) {
         };
     });
 }
-//# sourceMappingURL=prepare.js.map

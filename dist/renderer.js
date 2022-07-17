@@ -54,4 +54,3 @@ function squareAt(location, gridSize, gridDimensions, facing, progress, end) {
     }
     throw new Error('Unexpected Game Error');
 }
-//# sourceMappingURL=renderer.js.map

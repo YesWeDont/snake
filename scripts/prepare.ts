@@ -18,15 +18,6 @@ export function initiate(chdir:(newDirection:Direction) => void):Promise<Game>{
             if(e.key.toLowerCase() === 'a' || e.key === 'ArrowLeft') chdir("w")
             if(e.key.toLowerCase() === 's' || e.key === 'ArrowDown') chdir("s")
             if(e.key.toLowerCase() === 'd' || e.key === 'ArrowRight') chdir("e");
-            if(e.key.toLowerCase() === 'g'){
-                for(let i = 0; i< 100; i++){
-                    chdir('n')
-                    chdir('e')
-                    chdir('s')
-                    chdir('w')
-                }
-            }
-//             e.preventDefault();
         })
         return {
             general:{

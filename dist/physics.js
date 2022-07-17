@@ -1,7 +1,7 @@
 import { coordAdd, coordEqual } from "./coordinates.js";
 export function physics(_game, gameEnd) {
     let game = JSON.parse(JSON.stringify(_game.state));
-    game.progress += 0.05;
+    game.progress += 0.1;
     if (game.progress > 1) {
         game.heading = game.headingQueue.shift() || game.heading;
         game.progress = 0;
@@ -28,4 +28,3 @@ export function physics(_game, gameEnd) {
     }
     return game;
 }
-//# sourceMappingURL=physics.js.map
