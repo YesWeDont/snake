@@ -7,7 +7,8 @@ const opposites = {
 import { negateVect, addVec, vectDirection } from "./coordinates.js";
 export class Renderer {
     constructor(canvas) {
-        this.ctx = canvas.getContext("2d") || (() => { throw new Error('Cnvas Renderer init failed..'); })();
+        this.ctx = canvas.getContext("2d") || (() => { throw new Error('Canvs Renderer init failed..'); })();
+        this.ctx.font = "20px monospace";
     }
     render(gameState) {
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
@@ -22,6 +23,8 @@ export class Renderer {
         for (let apple of gameState.state.apple) {
             this.ctx.fillRect(...squareAt(apple, gameState.general.gameGrid, gameState.general.gameDimensions));
         }
+        this.ctx.fillStyle = "black";
+        this.ctx.fillText(`Snake Length: ${gameState.state.snake.length}`, 0, 0);
     }
 }
 function squareAt(location, gridSize, gridDimensions, facing, progress, end) {

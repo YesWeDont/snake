@@ -9,7 +9,8 @@ export class Renderer{
     ctx:CanvasRenderingContext2D;
     constructor(canvas:HTMLCanvasElement){
         //use stretch;
-        this.ctx = canvas.getContext("2d") || (()=>{throw new Error('Cnvas Renderer init failed..')})();
+        this.ctx = canvas.getContext("2d") || (()=>{throw new Error('Canvs Renderer init failed..')})();
+        this.ctx.font = "20px monospace";
     }
     render(gameState: Game){
         this.ctx.clearRect(0,0, this.ctx.canvas.width, this.ctx.canvas.height);
@@ -28,6 +29,8 @@ export class Renderer{
         for(let apple of gameState.state.apple){
             this.ctx.fillRect(...squareAt(apple, gameState.general.gameGrid, gameState.general.gameDimensions))
         }
+        this.ctx.fillStyle = "black";
+        this.ctx.fillText(`Snake Length: ${gameState.state.snake.length}`, 9, 0);
     }
 }
 function squareAt(location:Vector, gridSize:Vector, gridDimensions:Vector, facing?:Direction, progress?:number, end?:boolean):[number, number, number, number]{
