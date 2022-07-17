@@ -30,7 +30,7 @@ export class Renderer{
             this.ctx.fillRect(...squareAt(apple, gameState.general.gameGrid, gameState.general.gameDimensions))
         }
         this.ctx.fillStyle = "black";
-        this.ctx.fillText(`Snake Length: ${gameState.state.snake.length}`, 9, 0);
+        this.ctx.fillText(`Snake Length: ${gameState.state.snake.length}`, 0, 20);
     }
 }
 function squareAt(location:Vector, gridSize:Vector, gridDimensions:Vector, facing?:Direction, progress?:number, end?:boolean):[number, number, number, number]{
