@@ -33,7 +33,7 @@ window.onload=function game(){
         if(rt.cooldown) return;
         rt.cooldown = true;
         
-        if(key==="Escape"){
+        if(e.key==="Escape"){
             rt.paused=!rt.paused;
         }
         if(e.key==="b"&& (Date.now()-rt.boost> 1000)){
