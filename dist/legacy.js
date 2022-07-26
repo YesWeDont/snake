@@ -22,14 +22,13 @@ window.onload=function game(){
         apple:[4,5],
         boost:Date.now(),
         cooldown:false,
-        lastRender:Date.now()
+        lastRender:Date.now(),
+        ended: false
     }
     rt.snake.direction=[0,0]
-    console.log("lod")
 
     //bindkey
     document.addEventListener("keydown",(e)=>{
-        console.log("keydwon "+e)
         if(rt.cooldown) return;
         rt.cooldown = true;
         
@@ -62,10 +61,10 @@ window.onload=function game(){
             return false;
         }
     });
-    let interval=0;
 
 
     function gameLoop(){
+        if(rt.ended) return;
         requestAnimationFrame(gameLoop);
         if(Date.now() - rt.lastRender < 100) return;
         rt.lastRender = Date.now()
@@ -102,14 +101,12 @@ window.onload=function game(){
         //deaths
         if(rt.snake[0].some(a=>a<0||a>config.squares)){
             alert("You hit the wall! Reload to play again")
-            clearTimeout(interval)
-            return;
+            return rt.ended = true;
         }
         if(rt.snake.length>4){
             if(rt.snake.slice(1).some( a=>compare(a,rt.snake[0]) )){
                 alert("You hit yourself! Reload to play again")
-                clearTimeout(interval)
-                return
+                return rt.ended = true;
             }
         }
 
@@ -118,7 +115,6 @@ window.onload=function game(){
         drawSquare("red")(rt.apple)
 
     }
-    interval=setTimeout(gameLoop,100);
     function drawSquare(color){
         /** Renders square
          * @param {Number[]} v square to be rendered
